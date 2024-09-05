@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Details</title>
+    <style>
+        body {
+            background-image: url('court.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+		 .dashboard-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .dashboard-button:hover {
+            background-color: #ff4500;
+        }
+				h1 {
+    background: #00CC99;
+    text-align: center;
+    font-size: 308px;
+    padding: 20px 1em;
+    font-weight: bold;
+    margin-left: 35%;
+    margin-right: 35%;
+    cursor: pointer;
+    font-family: "Arial Black";
+}
+
+.dashboard-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dashboard-button:hover {
+    background-color: #ff4500;
+}
+
+.menu {
+    position: absolute;
+    top: 60px;
+    left: -200px;
+    background-color: #333;
+    color: #ff4500;
+    padding: 10px;
+    border-radius: 5px;
+    transition: left 0.3s;
+}
+
+.menu a {
+    display: block;
+    margin-bottom: 30px;
+    color: #fff;
+    text-decoration: none;
+}
+.menu a:hover {
+    background-color: #32CD32; /* Highlight in orange when hovered */
+    color: #000; /* Change text color when hovered */
+    padding-left: 40px; /* Increase left padding */
+    padding-right: 40px; /* Increase right padding */
+}
+
+        .menu {
+            position: absolute;
+            top: 40px;
+            left: -200px;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            transition: left 0.3s;
+        }
+
+        .menu a {
+            display: block;
+            margin-bottom: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .form-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .form-button:hover {
+            background-color: #555;
+        }
+
+        .success-message {
+            background-color: #4CAF50;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            width: 50%;
+            margin-left: 25%;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-button" id="dashboard-button">=</div>
+    <div class="menu" id="menu">
+        <a href="prisoner.html">Home</a>
+        <a href="Login.html" target="_blank">Login</a>
+        <a href="Signup.html" target="_blank">Signup</a>
+        <a href="Jails.html" target="_blank">Supporter Details</a>
+        <a href="Supporter_Details.html" target="_blank">Supporter Details</a>
+        <a href="Q&A.html" target="_blank">Q & A</a>
+		 <a href="ChatBot.html" target="_blank">ChatBot</a>
+        <a href="notification.html" target="_blank">Notification Center</a>
+        <a href="about.html" target="_blank">About</a>
+        <div id="welcome-message"></div>
+    </div>
+    <div class="form-container">
+        <h2>Supporter Details</h2>
+        <form action="your_server_visitor_details_script.php" method="POST">
+      
+		<input type="text" name="name-of-the-visitor" placeholder="Name of the Visitor" required class="form-input">
+            <select name="select-state" required class="form-input">
+                <option value="select-state">Select State</option>
+		     <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="West Bengal">West Bengal</option>
+            <option value="Andaman and Nicobar Islands">Andaman and NicobarIslands</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+            <option value="Lakshadweep">Lakshadweep</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Puducherry">Puducherry</option>
+
+                <!-- Add more state options here -->
+                   
+        </select>
+		 Jail Selection
+
+           <select name="Jail Selection" required class="form-input">
+            <optgroup label="Andhra Pradesh">
+                <option value="Central Prison, Visakhapatnam">Central Prison, Visakhapatnam</option>
+                <option value="Central Prison, Rajahmundry">Central Prison, Rajahmundry</option>
+            </optgroup>
+<optgroup label="Assam">Assam</optgroup>
+<optgroup label="Bihar">Bihar</optgroup>
+<optgroup label="Chhattisgarh">Chhattisgarh</optgroup>
+<option value="Central Jail Raipur">Central Jail Raipur</option>
+<option value="Central Jail Jagdalpur">Central Jail Jagdalpur</option>
+<option value="Central Jail Bilaspur">Central Jail Bilaspur</option>
+<option value="Central Jail Ambikapur">Central Jail Ambikapur</option>
+<option value="Central Jail Durg">Central Jail Durg</option>
+<option value="District Jail Mahasamund">District Jail Mahasamund</option>
+ <optgroup>
+<optgroup label="Goa">Goa</optgroup>
+<optgroup label="Gujarat">Gujarat</optgroup>
+<option value="Sabarmati Central Jail, Ahmedabad">Sabarmati Central Jail, Ahmedabad</option>
+<option value="Bhuj Sub Jail, Bhuj">Bhuj Sub Jail, Bhuj</option>
+<option value="Vadodara Central Jail, Vadodara">Vadodara Central Jail, Vadodara</option>
+<option value="Rajkot Central Jail, Rajkot">Rajkot Central Jail, Rajkot</option>
+<option value="Surat Central Jail, Surat">Surat Central Jail, Surat</option>
+<option value="Central Prison, Vadodara">Central Prison, Vadodara</option>
+<option value="Junagadh Sub Jail, Junagadh">Junagadh Sub Jail, Junagadh</option>
+<option value="Central Prison, Jamnagar">Central Prison, Jamnagar</option>
+<option value="Central Prison, Nadiad">Central Prison, Nadiad</option>
+<option value="Central Prison, Bharuch">Central Prison, Bharuch</option>
+<option value="Central Prison, Bhavnagar">Central Prison, Bhavnagar</option>
+<option value="Central Prison, Porbandar">Central Prison, Porbandar</option>
+<option value="Central Prison, Navsari">Central Prison, Navsari</option>
+<option value="Central Prison, Valsad">Central Prison, Valsad</option>
+<option value="Central Prison, Gandhinagar">Central Prison, Gandhinagar</option>
+<option value="Central Prison, Himmatnagar">Central Prison, Himmatnagar</option>
+<option value="Central Prison, Mehsana">Central Prison, Mehsana</option>
+<option value="Central Prison, Palanpur">Central Prison, Palanpur</option>
+<option value="Central Prison, Dahod">Central Prison, Dahod</option>
+<option value="Central Prison, Godhra">Central Prison, Godhra</option>
+<option value="Central Prison, Anand">Central Prison, Anand</option>
+<option value="Central Prison, Vyara">Central Prison, Vyara</option>
+<option value="Central Prison, Bhuj">Central Prison, Bhuj</option>
+<option value="Central Prison, Modasa">Central Prison, Modasa</option>
+<option value="Central Prison, Bhuj">Central Prison, Bhuj</option>
+ </select>
+
+
+<optgroup label="Haryana">Haryana</optgroup>
+<optgroup label="Himachal Pradesh">Himachal Pradesh</optgroup>
+<optgroup label="Jharkhand">Jharkhand</optgroup>
+<optgroup label="Karnataka">Karnataka</optgroup>
+<optgroup label="Kerala">Kerala</optgroup>
+<optgroup label="Madhya Pradesh">Madhya Pradesh</optgroup>
+<optgroup label="Maharashtra">Maharashtra</optgroup>
+<optgroup label="Manipur">Manipur</optgroup>
+<optgroup label="Meghalaya">Meghalaya</optgroup>
+<optgroup label="Mizoram">Mizoram</optgroup>
+<optgroup label="Nagaland">Nagaland</optgroup>
+<optgroup label="Odisha">Odisha</optgroup>
+<optgroup label="Punjab">Punjab</optgroup>
+<optgroup label="Rajasthan">Rajasthan</optgroup>
+<optgroup label="Sikkim">Sikkim</optgroup>
+<optgroup label="Tamil Nadu">Tamil Nadu</optgroup>
+<optgroup label="Telangana">Telangana</optgroup>
+<optgroup label="Tripura">Tripura</optgroup>
+<optgroup label="Uttar Pradesh">Uttar Pradesh</optgroup>
+<optgroup label="Uttarakhand">Uttarakhand</optgroup>
+<optgroup label="West Bengal">West Bengal</optgroup>
+
+            <!-- Add more states and jail names here -->
+        </select>
+    
+
+			
+            <input type="date" name="visit-date" placeholder="Visit Date" required class="form-input">
+            <input type="text" name="additional-visitors" placeholder="Additional Visitors" class="form-input">
+            <input type="text" name="visitor-name" placeholder="Visitor Name" required class="form-input">
+            <input type="text" name="father-name" placeholder="Father Name" required class="form-input">
+            <input type="number" name="visitor-age" placeholder="Visitor Age" required class="form-input">
+            <select name="visitor-gender" required class="form-input">
+                <option value="gender">Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <select name="visit-mode" required class="form-input">
+                <option value="visit-mode">Visit Mode</option>
+                <option value="physical-mode">PHYSICAL Mode</option>
+                <option value="virtual-mode">VIRTUAL Mode</option>
+                <!-- Add visit mode options here -->
+            </select>
+            <input type="text" name="visitor-address" placeholder="Address" required class="form-input">
+            <input type="tel" name="visitor-phone" placeholder="Phone Number" required class="form-input">
+            <button type="submit" class="form-button">Submit</button>
+        </form>
+    </div>
+
+    <div class="success-message" id="success-message">Submission Successful!</div>
+
+
+    <script>
+        const dashboardButton = document.getElementById('dashboard-button');
+        const menu = document.getElementById('menu');
+
+        dashboardButton.addEventListener('click', () => {
+            if (menu.style.left === '0px') {
+                menu.style.left = '-200px';
+            } else {
+                menu.style.left = '0px';
+            }
+        });
+
+        const successMessage = document.getElementById('success-message');
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            successMessage.style.display = 'block';
+        });
+
+        function performSearch() {
+            // Get the search query from the input field
+            var query = document.getElementById("searchInput").value;
+
+            // Perform the search (you can replace this with your own search logic)
+            // For this example, we'll just display the search query in the results div
+            var resultsDiv = document.getElementById("searchResults");
+            resultsDiv.innerHTML = "You searched for: " + query;
+        }
+    </script>
+</body>
+</html>
+
+
+        

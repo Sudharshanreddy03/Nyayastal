@@ -1,0 +1,213 @@
+<?php include('server.php') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration system PHP and MySQL</title>
+    <style>
+        body {
+            font-family: Cambria, Georgia, serif;
+            background-image: url('JP5.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            font-weight: bold;
+        }
+
+        .dashboard {
+            background-color: #333;
+            color: #fff;
+            width: 200px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            background: #00FFFFFF;
+            text-align: center;
+            color: #02f5ac;
+            font-size: 5rem;
+            padding: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: "Arial Black MT Bold";
+        }
+
+        .dashboard-button,
+        .menu-button,
+        .nf-button {
+            position: absolute;
+            top: 10px;
+            background-color: #27c8a9;
+            color: #fff;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .dashboard-button:hover,
+        .menu-button:hover,
+        .nf-button:hover {
+            background-color: #0a0a0a;
+        }
+
+        .dashboard-button {
+            left: 10px;
+        }
+
+        .menu {
+            position: absolute;
+            top: 60px;
+            left: -200px;
+            background-color: #0a0a0a;
+            color: #ff4500;
+            padding: 10px;
+            border-radius: 25px;
+            transition: left 0.3s;
+        }
+
+        .menu a {
+            display: block;
+            margin-bottom: 45px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            background-color: #02f502;
+            padding: 10px;
+            border-radius: 25px;
+            color: #000;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 6rem;
+            flex-grow: 1;
+        }
+
+        .form {
+            background-color: #D3D3D3;
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 45%;
+            margin-bottom: 20px;
+        }
+
+        .form h2 {
+            text-align: center;
+        }
+
+        .form input[type="text"],
+        .form input[type="email"],
+        .form input[type="tel"],
+        .form select,
+        .form textarea {
+            width: 99%;
+            padding: 10px;
+            margin-bottom: 50px;
+            border: 1px solid gray;
+            border-radius: 50px;
+        }
+
+        .form button {
+            background-color: #18bf00;
+            color: #fff;
+            border: none;
+            border-radius: 40px;
+            padding: 14px 5px;
+            cursor: pointer;
+            width: 30%;
+            display: block;
+            margin: 10px auto;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .form button:hover {
+            background-color: #0a0a0a;
+        }
+    </style>
+</head>
+
+<body>
+<div class="dashboard-button" id="dashboard-button"><i class="fa-solid fa-bars"></i></div>
+<div class="menu" id="menu">
+    <a href="prisoner.html"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;&nbspHome</a>
+    <a href="Login.html" target="_blank"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;&nbspLogin/Signup</a>
+    <a href="Signup.html" target="_blank"><i class="fa-regular fa-user"></i>&nbsp;&nbsp;&nbspNew Registration</a>
+    <a href="Q&A.html" target="_blank"><i class="fa-solid fa-question"
+                                           style="color: #ffffff;">&nbsp;&nbsp;&nbsp</i>Q & A</a>
+    <a href="about.html" target="_blank"><i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;&nbspAbout</a>
+</div>
+
+<div class="header">
+    <h2>Register</h2>
+</div>
+
+<form method="post" action="register.php" class="form">
+    <?php include('errors.php'); ?>
+    <div class="input-group">
+        <label>Username</label>
+        <input type="text" name="username" value="<?php echo $username; ?>">
+    </div>
+    <div class="input-group">
+        <label>Email</label>
+        <input type="email" name="email" value="<?php echo $email; ?>">
+    </div>
+    <div class="input-group">
+        <label>Password</label>
+        <input type="password" name="password_1">
+    </div>
+    <div class="input-group">
+        <label>Confirm password</label>
+        <input type="password" name="password_2">
+    </div>
+    <div class="input-group">
+        <button type="submit" class="btn" name="reg_user">Register</button>
+    </div>
+    <p>
+        Already a member? <a href="login.php">Sign in</a>
+    </p>
+</form>
+<script>
+    const dashboardButton = document.getElementById('dashboard-button');
+    const menu = document.getElementById('menu');
+    const loginLink = document.getElementById('login-link');
+    const SignupLink = document.getElementById('Signup-link');
+    const visitorDetailsLink = document.getElementById('visitor-details-link');
+    const loginForm = document.getElementById('login-form');
+    const visitorDetailsForm = document.getElementById('visitor-details-form');
+    const welcomeMessage = document.getElementById('welcome-message');
+
+    dashboardButton.addEventListener('click', () => {
+        if (menu.style.left === '0px') {
+            menu.style.left = '-200px';
+        } else {
+            menu.style.left = '0px';
+        }
+    });
+
+    loginLink.addEventListener('click', () => {
+        loginForm.style.display = 'block';
+        visitorDetailsForm.style.display = 'none';
+    });
+
+    visitorDetailsLink.addEventListener('click', () => {
+        visitorDetailsForm.style.display = 'block';
+        loginForm.style.display = 'none';
+    });
+
+    const aboutLink = document.querySelector('a[href="about.html"]');
+    aboutLink.addEventListener('click', () => {
+        welcomeMessage.textContent = 'Welcome to my website!';
+    });
+</script>
+</body>
+</html>
